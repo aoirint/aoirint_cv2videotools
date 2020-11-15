@@ -32,7 +32,11 @@ def cvPutText(
     font_scale = fontScale
 
     font_name = Path(font_face).name
-    font_path_or_face = next(iter(FONTS_DIR.glob('**/{fontname}')), font_face)
+    font_found = next(iter(FONTS_DIR.glob(f'**/{font_name}')), None)
+    if font_found:
+        font_found = FONTS_DIR / font_found
+
+    font_path_or_face = font_found or font_face
 
     img = cv2pil(img)
     draw = ImageDraw.Draw(img)
