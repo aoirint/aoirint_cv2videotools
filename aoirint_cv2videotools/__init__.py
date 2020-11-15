@@ -7,5 +7,7 @@ except DistributionNotFound:
     pass
 
 
+import util
+
 from .loader import FileLoader, VideoLoader, YouTubeLoader
 from .searcher import YouTubeLiveVideoSearcher, YouTubeVideoEntry
