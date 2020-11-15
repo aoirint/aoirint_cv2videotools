@@ -6,8 +6,7 @@ except DistributionNotFound:
     # package is not installed
     pass
 
-
-import util
+from . import util
 
 from .loader import FileLoader, VideoLoader, YouTubeLoader
 from .searcher import YouTubeLiveVideoSearcher, YouTubeVideoEntry
