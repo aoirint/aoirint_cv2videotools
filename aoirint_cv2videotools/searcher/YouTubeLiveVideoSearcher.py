@@ -1,5 +1,5 @@
 import os
-from googleapiclient.discovery import build, Resource
+from googleapiclient.discovery import build, Resource # type: ignore
 
 from datetime import datetime
 from dateutil.parser import parse
@@ -51,7 +51,7 @@ class YouTubeLiveVideoSearcher:
     def search_live_videos(
         api_key: str,
         channel_id: str
-    ) -> YouTubeVideoEntry:
+    ) -> List[YouTubeVideoEntry]:
 
         searcher = YouTubeLiveVideoSearcher(api_key=api_key)
         live_videos = searcher.search(channel_id=channel_id)

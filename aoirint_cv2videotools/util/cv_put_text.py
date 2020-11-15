@@ -1,8 +1,9 @@
 import os
-import cv2
-import numpy as np
-from PIL import Image, ImageDraw, ImageFont
 from pathlib import Path
+
+import cv2 # type: ignore
+import numpy as np # type: ignore
+from PIL import Image, ImageDraw, ImageFont # type: ignore
 
 FONTS_DIR = Path(os.path.abspath(__file__)).parent / 'fonts'
 
@@ -35,7 +36,7 @@ def cvPutText(
 
     img = cv2pil(img)
     draw = ImageDraw.Draw(img)
-    font = ImageFont.truetype(font=font_path_or_face, size=font_scale)
+    font = ImageFont.truetype(font=str(font_path_or_face), size=font_scale)
 
     x, y = org
     b, g, r = color

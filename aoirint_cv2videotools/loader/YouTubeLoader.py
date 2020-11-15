@@ -1,6 +1,6 @@
 from urllib.parse import urlparse, urlunparse, urlencode
 import subprocess
-import cv2
+import cv2 # type: ignore
 
 from .VideoLoader import VideoLoader
 
