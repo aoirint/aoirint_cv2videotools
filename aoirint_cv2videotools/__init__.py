@@ -5,3 +5,7 @@ try:
 except DistributionNotFound:
     # package is not installed
     pass
+
+
+from loader import FileLoader, VideoLoader, YouTubeLoader
+from searcher import YouTubeLiveVideoSearcher, YouTubeVideoEntry
