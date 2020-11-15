@@ -5,7 +5,7 @@ import cv2 # type: ignore
 import numpy as np # type: ignore
 from PIL import Image, ImageDraw, ImageFont # type: ignore
 
-FONTS_DIR = Path(os.path.abspath(__file__)).parent / 'fonts'
+FONTS_DIR = Path(os.path.abspath(__file__)).parent.parent / 'fonts'
 
 
 def cv2pil(img_cv) -> Image:
