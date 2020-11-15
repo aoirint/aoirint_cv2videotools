@@ -1,6 +1,11 @@
+import os
 import cv2
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
+from pathlib import Path
+
+FONTS_DIR = Path(os.path.abspath(__file__)).parent / 'fonts'
+
 
 def cv2pil(img_cv) -> Image:
     img_cv_rgb = img_cv[:, :, ::-1] # RGB
@@ -16,15 +21,21 @@ def cvPutText(
     img: np.ndarray,
     text: str,
     org,
-    fontFace='ipag.ttf',
+    fontFace='ipaexg.ttf',
     fontScale=20,
     color=(255, 0, 255),
     # thickness=1,
     # lineType=cv2.LINE_AA
 ):
+    font_face = fontFace
+    font_scale = fontScale
+
+    font_name = Path(font_face).name
+    font_path_or_face = next(iter(FONTS_DIR.glob('**/{fontname}')), font_face)
+
     img = cv2pil(img)
     draw = ImageDraw.Draw(img)
-    font = ImageFont.truetype(font=fontFace, size=fontScale)
+    font = ImageFont.truetype(font=font_path_or_face, size=font_scale)
 
     x, y = org
     b, g, r = color
